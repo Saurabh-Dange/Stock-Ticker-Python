@@ -9,12 +9,10 @@ flag = True
 
 while flag:
     response = requests.get(
-        'http://www.moneycontrol.com/india/stockpricequote/computers-software/tataconsultancyservices/TCS')
+        'http://www.moneycontrol.com/india/stockpricequote/computers-software/tataconsultancyservices/TCS') #Enter url of your desired stock from moneycontrol website
     data = response.text
     soup = BeautifulSoup(data, 'lxml')
-    # id = Bse_Prc_tick_div
     tags = soup.find_all('span', id="Bse_Prc_tick")
-    # div = tags.find_all("strong")
     notify2.init("stock price")
     n = notify2.Notification(None)
     n.set_timeout(1)
